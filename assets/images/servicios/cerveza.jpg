@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F5F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0E0E0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="beerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DAA520;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="foamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0F8FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Mesa -->
+  <ellipse cx="200" cy="250" rx="180" ry="40" fill="#f8f8f8" stroke="#d0d0d0" stroke-width="2"/>
+  
+  <!-- Vaso de cerveza -->
+  <rect x="170" y="120" width="60" height="120" rx="5" fill="url(#glassGrad)" stroke="#C0C0C0" stroke-width="2"/>
+  
+  <!-- Cerveza -->
+  <rect x="175" y="140" width="50" height="90" rx="3" fill="url(#beerGrad)" opacity="0.9"/>
+  
+  <!-- Espuma -->
+  <ellipse cx="200" cy="140" rx="25" ry="8" fill="url(#foamGrad)"/>
+  
+  <!-- Burbujas en la espuma -->
+  <circle cx="190" cy="135" r="2" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="210" cy="137" r="1" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="200" cy="133" r="1" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="185" cy="138" r="1" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="215" cy="135" r="1" fill="#FFFFFF" opacity="0.8"/>
+  
+  <!-- Burbujas en la cerveza -->
+  <circle cx="185" cy="160" r="1" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="200" cy="170" r="1" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="215" cy="180" r="1" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="190" cy="190" r="1" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="205" cy="200" r="1" fill="#FFFFFF" opacity="0.6"/>
+  
+  <!-- Botella de cerveza -->
+  <rect x="120" y="100" width="25" height="140" rx="3" fill="#8B4513" stroke="#654321" stroke-width="1"/>
+  <rect x="125" y="110" width="15" height="120" fill="#DAA520" opacity="0.8"/>
+  <rect x="125" y="120" width="15" height="20" fill="#FFFFFF" stroke="#8B4513" stroke-width="1"/>
+  <text x="132" y="135" text-anchor="middle" fill="#8B4513" font-family="Arial, sans-serif" font-size="6" font-weight="bold">BEER</text>
+  
+  <!-- Título -->
+  <text x="200" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Cerveza</text>
+</svg>

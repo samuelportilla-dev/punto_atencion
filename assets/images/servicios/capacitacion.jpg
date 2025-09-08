@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="personGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFE4B5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DEB887;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4169E1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0000CD;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Mesa -->
+  <ellipse cx="200" cy="250" rx="180" ry="40" fill="#f8f8f8" stroke="#d0d0d0" stroke-width="2"/>
+  
+  <!-- Persona 1 (Instructor) -->
+  <circle cx="150" cy="120" r="20" fill="url(#personGrad)"/>
+  <rect x="130" y="140" width="40" height="60" fill="url(#shirtGrad)" rx="5"/>
+  <rect x="140" y="200" width="20" height="30" fill="#000000"/>
+  
+  <!-- Persona 2 (Aprendiz) -->
+  <circle cx="250" cy="120" r="20" fill="url(#personGrad)"/>
+  <rect x="230" y="140" width="40" height="60" fill="#228B22" rx="5"/>
+  <rect x="240" y="200" width="20" height="30" fill="#000000"/>
+  
+  <!-- Pizarra -->
+  <rect x="100" y="80" width="200" height="120" fill="#000000" stroke="#333333" stroke-width="3"/>
+  <rect x="110" y="90" width="180" height="100" fill="#FFFFFF" opacity="0.9"/>
+  
+  <!-- Contenido de la pizarra -->
+  <text x="200" y="110" text-anchor="middle" fill="#000080" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Capacitación El Punto</text>
+  <text x="200" y="125" text-anchor="middle" fill="#000080" font-family="Arial, sans-serif" font-size="8">1. Login al sistema</text>
+  <text x="200" y="135" text-anchor="middle" fill="#000080" font-family="Arial, sans-serif" font-size="8">2. Tomar pedidos</text>
+  <text x="200" y="145" text-anchor="middle" fill="#000080" font-family="Arial, sans-serif" font-size="8">3. Gestionar mesas</text>
+  <text x="200" y="155" text-anchor="middle" fill="#000080" font-family="Arial, sans-serif" font-size="8">4. Reportes</text>
+  
+  <!-- Laptop -->
+  <rect x="300" y="160" width="60" height="40" fill="#E0E0E0" stroke="#A0A0A0" stroke-width="2"/>
+  <rect x="305" y="165" width="50" height="30" fill="#000080"/>
+  <text x="330" y="180" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="6">El Punto</text>
+  
+  <!-- Documentos -->
+  <rect x="50" y="160" width="40" height="50" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+  <text x="70" y="175" text-anchor="middle" fill="#000080" font-family="Arial, sans-serif" font-size="6">Manual</text>
+  <text x="70" y="185" text-anchor="middle" fill="#000080" font-family="Arial, sans-serif" font-size="6">Usuario</text>
+  
+  <!-- Título -->
+  <text x="200" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Capacitación Staff</text>
+</svg>

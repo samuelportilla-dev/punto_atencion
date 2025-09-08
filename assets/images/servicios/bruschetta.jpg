@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="breadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#DEB887;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D2691E;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tomatoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6347;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DC143C;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Plato -->
+  <ellipse cx="200" cy="200" rx="180" ry="60" fill="#f8f8f8" stroke="#d0d0d0" stroke-width="2"/>
+  
+  <!-- Pan tostado -->
+  <rect x="120" y="150" width="160" height="40" rx="5" fill="url(#breadGrad)"/>
+  
+  <!-- Tomates -->
+  <ellipse cx="150" cy="170" rx="15" ry="8" fill="url(#tomatoGrad)"/>
+  <ellipse cx="180" cy="165" rx="12" ry="6" fill="url(#tomatoGrad)"/>
+  <ellipse cx="210" cy="168" rx="14" ry="7" fill="url(#tomatoGrad)"/>
+  <ellipse cx="240" cy="166" rx="13" ry="6" fill="url(#tomatoGrad)"/>
+  
+  <!-- Albahaca -->
+  <path d="M140 160 Q145 155 150 160 Q155 155 160 160" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  <path d="M170 158 Q175 153 180 158 Q185 153 190 158" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  <path d="M200 160 Q205 155 210 160 Q215 155 220 160" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  <path d="M230 159 Q235 154 240 159 Q245 154 250 159" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  
+  <!-- Mozzarella -->
+  <circle cx="160" cy="175" r="4" fill="#F5F5DC"/>
+  <circle cx="190" cy="172" r="3" fill="#F5F5DC"/>
+  <circle cx="220" cy="174" r="4" fill="#F5F5DC"/>
+  <circle cx="250" cy="173" r="3" fill="#F5F5DC"/>
+  
+  <!-- Aceite de oliva -->
+  <ellipse cx="200" cy="180" rx="60" ry="8" fill="#FFFFE0" opacity="0.6"/>
+  
+  <!-- Título -->
+  <text x="200" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Bruschetta</text>
+</svg>

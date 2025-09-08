@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="panGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D2691E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A0522D;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="riceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5DEB3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DEB887;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Paellera -->
+  <ellipse cx="200" cy="200" rx="180" ry="60" fill="url(#panGrad)" stroke="#8B4513" stroke-width="3"/>
+  
+  <!-- Arroz -->
+  <ellipse cx="200" cy="180" rx="160" ry="40" fill="url(#riceGrad)"/>
+  
+  <!-- Mariscos -->
+  <!-- Camarones -->
+  <ellipse cx="150" cy="170" rx="8" ry="4" fill="#FF6347" transform="rotate(30 150 170)"/>
+  <ellipse cx="220" cy="175" rx="6" ry="3" fill="#FF6347" transform="rotate(-20 220 175)"/>
+  <ellipse cx="250" cy="168" rx="7" ry="3" fill="#FF6347" transform="rotate(45 250 168)"/>
+  
+  <!-- Mejillones -->
+  <ellipse cx="180" cy="165" rx="6" ry="8" fill="#8B4513"/>
+  <ellipse cx="240" cy="170" rx="5" ry="7" fill="#8B4513"/>
+  
+  <!-- Pollo -->
+  <ellipse cx="160" cy="185" rx="12" ry="8" fill="#DEB887"/>
+  <ellipse cx="200" cy="190" rx="10" ry="6" fill="#DEB887"/>
+  <ellipse cx="230" cy="185" rx="11" ry="7" fill="#DEB887"/>
+  
+  <!-- Pimientos -->
+  <ellipse cx="170" cy="160" rx="4" ry="6" fill="#FF0000"/>
+  <ellipse cx="210" cy="165" rx="3" ry="5" fill="#FF0000"/>
+  <ellipse cx="260" cy="162" rx="4" ry="6" fill="#FF0000"/>
+  
+  <!-- Azafrán -->
+  <circle cx="190" cy="175" r="1" fill="#FFD700"/>
+  <circle cx="210" cy="180" r="1" fill="#FFD700"/>
+  <circle cx="230" cy="175" r="1" fill="#FFD700"/>
+  
+  <!-- Perejil -->
+  <path d="M180 160 Q185 155 190 160" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  <path d="M200 162 Q205 157 210 162" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  <path d="M220 161 Q225 156 230 161" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  
+  <!-- Título -->
+  <text x="200" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Paella Valenciana</text>
+</svg>

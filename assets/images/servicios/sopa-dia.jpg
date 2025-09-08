@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bowlGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f8f8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8e8e8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="soupGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF8C00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF4500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Plato -->
+  <ellipse cx="200" cy="200" rx="180" ry="60" fill="url(#bowlGrad)" stroke="#d0d0d0" stroke-width="2"/>
+  
+  <!-- Sopa -->
+  <ellipse cx="200" cy="180" rx="160" ry="40" fill="url(#soupGrad)"/>
+  
+  <!-- Ingredientes flotando -->
+  <!-- Zanahorias -->
+  <ellipse cx="150" cy="170" rx="8" ry="4" fill="#FF8C00" transform="rotate(30 150 170)"/>
+  <ellipse cx="220" cy="175" rx="6" ry="3" fill="#FF8C00" transform="rotate(-20 220 175)"/>
+  
+  <!-- Cebolla -->
+  <circle cx="180" cy="165" r="4" fill="#F5F5DC"/>
+  <circle cx="250" cy="170" r="3" fill="#F5F5DC"/>
+  
+  <!-- Apio -->
+  <rect x="160" y="160" width="3" height="8" fill="#90EE90" transform="rotate(45 160 160)"/>
+  <rect x="240" y="165" width="2" height="6" fill="#90EE90" transform="rotate(-30 240 165)"/>
+  
+  <!-- Vapor -->
+  <path d="M190 140 Q195 130 200 140 Q205 130 210 140" stroke="#E0E0E0" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M180 135 Q185 125 190 135 Q195 125 200 135" stroke="#E0E0E0" stroke-width="2" fill="none" opacity="0.4"/>
+  
+  <!-- Título -->
+  <text x="200" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Sopa del Día</text>
+</svg>

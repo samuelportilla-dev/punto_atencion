@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones - El Punto de Atención</title>
+    <meta name="description" content="Descubre nuestro ecosistema integral de módulos digitales: CRM, Analytics, Proyectos, Ventas, Marketing y más.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .main-content {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .page-header h1 {
+            color: #7c3aed;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .solutions-map {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 4rem;
+        }
+        
+        .solutions-map h2 {
+            text-align: center;
+            color: #7c3aed;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .module-item {
+            background: #7c3aed;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .module-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+        }
+        
+        .module-item.in-development {
+            background: #dc3545;
+        }
+        
+        .module-item.premium {
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+        }
+        
+        .module-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        
+        .module-item:hover::before {
+            animation: shine 0.5s ease-in-out;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        
+        .legend-color.available {
+            background: #7c3aed;
+        }
+        
+        .legend-color.development {
+            background: #dc3545;
+        }
+        
+        .legend-color.premium {
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+        }
+        
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid #7c3aed;
+        }
+        
+        .feature-card h3 {
+            color: #7c3aed;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-card ul li {
+            padding: 0.5rem 0;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .feature-card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #7c3aed;
+            font-weight: bold;
+        }
+        
+        .integration-section {
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .integration-section h2 {
+            margin-bottom: 2rem;
+        }
+        
+        .integration-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .integration-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .integration-icon:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .modules-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+            
+            .module-item {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .legend {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .modules-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.svg" alt="El Punto de Atención">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios Digitales</a></li>
+                <li><a href="casos-exito.html">Casos de Éxito</a></li>
+                <li><a href="portafolio.html">Portafolio</a></li>
+                <li><a href="soluciones.html" class="active">Soluciones</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Nuestras Soluciones</h1>
+            <p>Ecosistema integral de herramientas digitales que se adaptan a las necesidades de tu empresa</p>
+        </div>
+
+        <div class="solutions-map">
+            <h2>Módulos de la Plataforma</h2>
+            <div class="modules-grid">
+                <div class="module-item" onclick="showModuleInfo('crm')">CRM</div>
+                <div class="module-item in-development" onclick="showModuleInfo('analytics')">Analytics</div>
+                <div class="module-item" onclick="showModuleInfo('projects')">Proyectos</div>
+                <div class="module-item in-development" onclick="showModuleInfo('sales')">Ventas</div>
+                <div class="module-item" onclick="showModuleInfo('marketing')">Marketing</div>
+                <div class="module-item" onclick="showModuleInfo('finance')">Finanzas</div>
+                <div class="module-item in-development" onclick="showModuleInfo('hr')">RRHH</div>
+                <div class="module-item" onclick="showModuleInfo('inventory')">Inventario</div>
+                <div class="module-item" onclick="showModuleInfo('support')">Soporte</div>
+                <div class="module-item in-development" onclick="showModuleInfo('cloud')">Cloud</div>
+                <div class="module-item premium" onclick="showModuleInfo('security')">Seguridad</div>
+                <div class="module-item" onclick="showModuleInfo('reports')">Reportes</div>
+                <div class="module-item in-development" onclick="showModuleInfo('api')">API</div>
+                <div class="module-item" onclick="showModuleInfo('mobile')">Mobile</div>
+                <div class="module-item premium" onclick="showModuleInfo('ai')">IA</div>
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="legend-color available"></span>
+                    <span>Disponible</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color development"></span>
+                    <span>En Desarrollo</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color premium"></span>
+                    <span>Premium</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <div class="feature-card">
+                <h3><i class="fas fa-users"></i> Gestión de Clientes</h3>
+                <ul>
+                    <li>CRM completo con historial de interacciones</li>
+                    <li>Segmentación avanzada de clientes</li>
+                    <li>Automatización de follow-ups</li>
+                    <li>Integración con redes sociales</li>
+                    <li>Análisis de satisfacción</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3><i class="fas fa-chart-line"></i> Business Intelligence</h3>
+                <ul>
+                    <li>Dashboards personalizables</li>
+                    <li>Reportes automáticos</li>
+                    <li>KPIs en tiempo real</li>
+                    <li>Análisis predictivo con IA</li>
+                    <li>Visualización de datos avanzada</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3><i class="fas fa-tasks"></i> Gestión Operativa</h3>
+                <ul>
+                    <li>Planificación de proyectos</li>
+                    <li>Gestión de recursos</li>
+                    <li>Control de inventario</li>
+                    <li>Automatización de procesos</li>
+                    <li>Seguimiento de performance</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3><i class="fas fa-shield-alt"></i> Seguridad y Compliance</h3>
+                <ul>
+                    <li>Encriptación end-to-end</li>
+                    <li>Autenticación multi-factor</li>
+                    <li>Auditoría de accesos</li>
+                    <li>Backup automático</li>
+                    <li>Cumplimiento GDPR</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3><i class="fas fa-mobile-alt"></i> Movilidad</h3>
+                <ul>
+                    <li>Apps móviles nativas</li>
+                    <li>Sincronización offline</li>
+                    <li>Notificaciones push</li>
+                    <li>Geolocalización</li>
+                    <li>Acceso remoto seguro</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3><i class="fas fa-cogs"></i> Integraciones</h3>
+                <ul>
+                    <li>API REST completa</li>
+                    <li>Webhooks personalizados</li>
+                    <li>Conectores pre-built</li>
+                    <li>Importación/Exportación</li>
+                    <li>Sincronización bidireccional</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="integration-section">
+            <h2>Integraciones Disponibles</h2>
+            <p>Conecta El Punto de Atención con las herramientas que ya usas</p>
+            <div class="integration-icons">
+                <div class="integration-icon" title="Salesforce">
+                    <i class="fab fa-salesforce"></i>
+                </div>
+                <div class="integration-icon" title="Microsoft Office">
+                    <i class="fab fa-microsoft"></i>
+                </div>
+                <div class="integration-icon" title="Google Workspace">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="integration-icon" title="Slack">
+                    <i class="fab fa-slack"></i>
+                </div>
+                <div class="integration-icon" title="Zapier">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="integration-icon" title="QuickBooks">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="integration-icon" title="Mailchimp">
+                    <i class="fab fa-mailchimp"></i>
+                </div>
+                <div class="integration-icon" title="Stripe">
+                    <i class="fab fa-stripe"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showModuleInfo(module) {
+            const modules = {
+                'crm': 'CRM: Gestión completa de clientes con automatización de ventas y seguimiento de oportunidades.',
+                'analytics': 'Analytics: Análisis avanzado de datos con IA y visualizaciones interactivas (En desarrollo).',
+                'projects': 'Proyectos: Planificación, seguimiento y gestión colaborativa de proyectos empresariales.',
+                'sales': 'Ventas: Pipeline de ventas, cotizaciones y seguimiento de performance (En desarrollo).',
+                'marketing': 'Marketing: Campañas automatizadas, email marketing y análisis de ROI.',
+                'finance': 'Finanzas: Contabilidad, facturación y reportes financieros integrados.',
+                'hr': 'RRHH: Gestión de empleados, nómina y evaluaciones de desempeño (En desarrollo).',
+                'inventory': 'Inventario: Control de stock, órdenes de compra y gestión de proveedores.',
+                'support': 'Soporte: Sistema de tickets, base de conocimiento y chat en vivo.',
+                'cloud': 'Cloud: Infraestructura escalable con backup automático y seguridad avanzada (En desarrollo).',
+                'security': 'Seguridad: Módulo premium con encriptación avanzada y auditoría completa.',
+                'reports': 'Reportes: Generación automática de reportes personalizables y programables.',
+                'api': 'API: Interfaz de programación completa para integraciones personalizadas (En desarrollo).',
+                'mobile': 'Mobile: Aplicaciones móviles nativas para iOS y Android.',
+                'ai': 'IA: Inteligencia artificial premium para análisis predictivo y automatización inteligente.'
+            };
+            
+            alert(modules[module] || 'Módulo no encontrado');
+        }
+    </script>
+</body>
+</html>

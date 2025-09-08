@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - El Punto de Atención</title>
+    <meta name="description" content="Explora nuestro portafolio de soluciones digitales: dashboards, CRM, automatización, cloud computing y más.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .main-content {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .page-header h1 {
+            color: #7c3aed;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(124, 58, 237, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .portfolio-overlay p {
+            text-align: center;
+            margin-bottom: 1rem;
+            padding: 0 1rem;
+        }
+        
+        .portfolio-overlay .btn {
+            background: white;
+            color: #7c3aed;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-overlay .btn:hover {
+            background: #f3f4f6;
+            transform: translateY(-2px);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #7c3aed;
+            background: white;
+            color: #7c3aed;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #7c3aed;
+            color: white;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+        
+        .modal-content {
+            position: relative;
+            margin: 5% auto;
+            max-width: 80%;
+            max-height: 80%;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+        }
+        
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: #aaa;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #7c3aed;
+        }
+        
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.svg" alt="El Punto de Atención">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios Digitales</a></li>
+                <li><a href="casos-exito.html">Casos de Éxito</a></li>
+                <li><a href="portafolio.html" class="active">Portafolio</a></li>
+                <li><a href="soluciones.html">Soluciones</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Portafolio de Soluciones</h1>
+            <p>Descubre nuestras soluciones digitales innovadoras, diseñadas por expertos en tecnología empresarial</p>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterPortfolio('all')">Todas</button>
+            <button class="filter-btn" onclick="filterPortfolio('dashboard')">Dashboards</button>
+            <button class="filter-btn" onclick="filterPortfolio('crm')">CRM</button>
+            <button class="filter-btn" onclick="filterPortfolio('automation')">Automatización</button>
+            <button class="filter-btn" onclick="filterPortfolio('mobile')">Mobile</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolioGrid">
+            <div class="portfolio-item" data-category="dashboard" onclick="openModal('dashboard1')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%237c3aed'/><text x='200' y='125' text-anchor='middle' fill='white' font-size='24'>Dashboard Ejecutivo</text></svg>" alt="Dashboard Ejecutivo">
+                <div class="portfolio-overlay">
+                    <h3>Dashboard Ejecutivo</h3>
+                    <p>Panel de control con métricas clave en tiempo real</p>
+                    <button class="btn">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="crm" onclick="openModal('crm1')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%235b21b6'/><text x='200' y='125' text-anchor='middle' fill='white' font-size='24'>CRM Inteligente</text></svg>" alt="CRM Inteligente">
+                <div class="portfolio-overlay">
+                    <h3>CRM Inteligente</h3>
+                    <p>Gestión completa de clientes con IA</p>
+                    <button class="btn">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="dashboard" onclick="openModal('projects1')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%237c3aed'/><text x='200' y='125' text-anchor='middle' fill='white' font-size='20'>Gestión de Proyectos</text></svg>" alt="Gestión de Proyectos">
+                <div class="portfolio-overlay">
+                    <h3>Gestión de Proyectos</h3>
+                    <p>Planificación y seguimiento colaborativo</p>
+                    <button class="btn">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="automation" onclick="openModal('analytics1')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%235b21b6'/><text x='200' y='125' text-anchor='middle' fill='white' font-size='20'>Análisis Predictivo</text></svg>" alt="Análisis Predictivo">
+                <div class="portfolio-overlay">
+                    <h3>Análisis Predictivo</h3>
+                    <p>IA avanzada para insights empresariales</p>
+                    <button class="btn">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="automation" onclick="openModal('automation1')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%237c3aed'/><text x='200' y='125' text-anchor='middle' fill='white' font-size='24'>Automatización</text></svg>" alt="Automatización">
+                <div class="portfolio-overlay">
+                    <h3>Automatización</h3>
+                    <p>Workflows inteligentes y APIs</p>
+                    <button class="btn">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="dashboard" onclick="openModal('cloud1')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%235b21b6'/><text x='200' y='125' text-anchor='middle' fill='white' font-size='20'>Cloud Computing</text></svg>" alt="Cloud Computing">
+                <div class="portfolio-overlay">
+                    <h3>Cloud Computing</h3>
+                    <p>Infraestructura escalable y segura</p>
+                    <button class="btn">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="mobile" onclick="openModal('mobile1')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%237c3aed'/><text x='200' y='125' text-anchor='middle' fill='white' font-size='20'>App Móvil</text></svg>" alt="App Móvil">
+                <div class="portfolio-overlay">
+                    <h3>Aplicación Móvil</h3>
+                    <p>Apps nativas multiplataforma</p>
+                    <button class="btn">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="crm" onclick="openModal('ecommerce1')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%235b21b6'/><text x='200' y='125' text-anchor='middle' fill='white' font-size='20'>E-commerce</text></svg>" alt="E-commerce">
+                <div class="portfolio-overlay">
+                    <h3>Plataforma E-commerce</h3>
+                    <p>Tienda online completa</p>
+                    <button class="btn">Ver Detalles</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalContent">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterPortfolio(category) {
+            const items = document.querySelectorAll('.portfolio-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Actualizar botones activos
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filtrar items
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function openModal(projectId) {
+            const modal = document.getElementById('portfolioModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            const projects = {
+                'dashboard1': {
+                    title: 'Dashboard Ejecutivo',
+                    description: 'Panel de control completo con métricas clave, KPIs en tiempo real y visualizaciones interactivas.',
+                    features: ['Métricas en tiempo real', 'Gráficos interactivos', 'Alertas personalizadas', 'Exportación de reportes', 'Multi-dispositivo'],
+                    tech: 'React, D3.js, Node.js, MongoDB'
+                },
+                'crm1': {
+                    title: 'CRM Inteligente',
+                    description: 'Sistema completo de gestión de clientes con automatización de marketing y ventas.',
+                    features: ['Gestión de contactos', 'Pipeline de ventas', 'Email marketing', 'Análisis de comportamiento', 'Integración API'],
+                    tech: 'Vue.js, Python, PostgreSQL, Redis'
+                },
+                'projects1': {
+                    title: 'Gestión de Proyectos',
+                    description: 'Plataforma colaborativa para planificación, seguimiento y gestión de proyectos empresariales.',
+                    features: ['Planificación Gantt', 'Colaboración en tiempo real', 'Gestión de recursos', 'Reportes automáticos', 'Integraciones'],
+                    tech: 'Angular, Java Spring, MySQL, Docker'
+                }
+            };
+            
+            const project = projects[projectId] || projects['dashboard1'];
+            
+            modalContent.innerHTML = `
+                <h2>${project.title}</h2>
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 300'><rect width='600' height='300' fill='%237c3aed'/><text x='300' y='150' text-anchor='middle' fill='white' font-size='36'>${project.title}</text></svg>" alt="${project.title}">
+                <p><strong>Descripción:</strong> ${project.description}</p>
+                <p><strong>Características:</strong></p>
+                <ul>
+                    ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+                <p><strong>Tecnologías:</strong> ${project.tech}</p>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('portfolioModal').style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('portfolioModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

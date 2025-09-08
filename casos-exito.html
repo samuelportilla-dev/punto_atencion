@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Éxito - El Punto de Atención</title>
+    <meta name="description" content="Conoce cómo nuestras soluciones han transformado empresas de diversos sectores, mejorando su eficiencia y competitividad.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .main-content {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .page-header h1 {
+            color: #7c3aed;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cases-table {
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 4rem;
+        }
+        
+        .cases-table th,
+        .cases-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cases-table th {
+            background: #7c3aed;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .cases-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .result-positive {
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .result-negative {
+            color: #ef4444;
+            font-weight: bold;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-content p {
+            font-style: italic;
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-author span {
+            color: #7c3aed;
+            font-size: 0.9rem;
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            color: #7c3aed;
+            opacity: 0.3;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .metric-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            color: white;
+            border-radius: 15px;
+        }
+        
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .cases-table {
+                font-size: 0.9rem;
+            }
+            
+            .cases-table th,
+            .cases-table td {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.svg" alt="El Punto de Atención">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios Digitales</a></li>
+                <li><a href="casos-exito.html" class="active">Casos de Éxito</a></li>
+                <li><a href="portafolio.html">Portafolio</a></li>
+                <li><a href="soluciones.html">Soluciones</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Casos de Éxito</h1>
+            <p>Conoce cómo nuestras soluciones han transformado empresas de diversos sectores</p>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-number">95%</div>
+                <div class="metric-label">Mejora en Eficiencia</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">80%</div>
+                <div class="metric-label">Reducción de Costos</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">150%</div>
+                <div class="metric-label">Aumento en Ventas</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">99.5%</div>
+                <div class="metric-label">Satisfacción Cliente</div>
+            </div>
+        </div>
+
+        <table class="cases-table">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Sector</th>
+                    <th>Solución Implementada</th>
+                    <th>Consultor</th>
+                    <th>Fecha</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>TechCorp Solutions</strong></td>
+                    <td>Tecnología</td>
+                    <td>CRM + Análisis de Datos</td>
+                    <td>María González</td>
+                    <td>Ene 2024</td>
+                    <td class="result-positive">+45% Ventas</td>
+                </tr>
+                <tr>
+                    <td><strong>Retail Express</strong></td>
+                    <td>Comercio</td>
+                    <td>Gestión de Proyectos</td>
+                    <td>Carlos Ruiz</td>
+                    <td>Feb 2024</td>
+                    <td class="result-negative">-30% Tiempo</td>
+                </tr>
+                <tr>
+                    <td><strong>InnovateLab</strong></td>
+                    <td>Consultoría</td>
+                    <td>Plataforma Integral</td>
+                    <td>Ana Martínez</td>
+                    <td>Mar 2024</td>
+                    <td class="result-positive">+60% Eficiencia</td>
+                </tr>
+                <tr>
+                    <td><strong>GrowthCo</strong></td>
+                    <td>Marketing</td>
+                    <td>Dashboard Ejecutivo</td>
+                    <td>Luis Pérez</td>
+                    <td>Abr 2024</td>
+                    <td class="result-positive">+35% ROI</td>
+                </tr>
+                <tr>
+                    <td><strong>DataFlow Inc</strong></td>
+                    <td>Finanzas</td>
+                    <td>Automatización + Cloud</td>
+                    <td>Sandra López</td>
+                    <td>May 2024</td>
+                    <td class="result-negative">-50% Errores</td>
+                </tr>
+                <tr>
+                    <td><strong>StartupHub</strong></td>
+                    <td>Tecnología</td>
+                    <td>CRM + App Móvil</td>
+                    <td>Roberto Díaz</td>
+                    <td>Jun 2024</td>
+                    <td class="result-positive">+120% Usuarios</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <div class="testimonial-content">
+                    <p>"El Punto de Atención ha transformado completamente nuestra operación. La productividad aumentó un 60% y los errores se redujeron un 85%. Es la mejor inversión que hemos hecho."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>María González</h4>
+                    <span>CEO, TechCorp Solutions</span>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <div class="testimonial-content">
+                    <p>"La integración entre departamentos es ahora perfecta. Nuestros clientes notan la diferencia en la calidad del servicio y hemos mejorado significativamente nuestros tiempos de respuesta."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Carlos Rodríguez</h4>
+                    <span>CTO, InnovateLab</span>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <div class="testimonial-content">
+                    <p>"Implementamos la plataforma en 2 meses y ya vemos mejoras significativas en todos nuestros KPIs empresariales. El ROI ha superado todas nuestras expectativas."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Ana Martínez</h4>
+                    <span>Directora de Operaciones, GrowthCo</span>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

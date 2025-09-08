@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="plateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f8f8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8e8e8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="flanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5DEB3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DEB887;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="caramelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D2691E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Plato -->
+  <ellipse cx="200" cy="200" rx="180" ry="60" fill="url(#plateGrad)" stroke="#d0d0d0" stroke-width="2"/>
+  
+  <!-- Flan -->
+  <ellipse cx="200" cy="170" rx="60" ry="40" fill="url(#flanGrad)" stroke="#D2691E" stroke-width="2"/>
+  
+  <!-- Caramelo -->
+  <ellipse cx="200" cy="200" rx="50" ry="15" fill="url(#caramelGrad)"/>
+  
+  <!-- Gotas de caramelo -->
+  <path d="M180 185 Q185 180 190 185" stroke="url(#caramelGrad)" stroke-width="2" fill="none"/>
+  <path d="M200 187 Q205 182 210 187" stroke="url(#caramelGrad)" stroke-width="2" fill="none"/>
+  <path d="M220 185 Q225 180 230 185" stroke="url(#caramelGrad)" stroke-width="2" fill="none"/>
+  
+  <!-- Decoración -->
+  <circle cx="180" cy="160" r="2" fill="#FFD700"/>
+  <circle cx="200" cy="158" r="2" fill="#FFD700"/>
+  <circle cx="220" cy="160" r="2" fill="#FFD700"/>
+  
+  <!-- Hojas de menta -->
+  <path d="M190 150 Q195 145 200 150" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  <path d="M210 152 Q215 147 220 152" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  
+  <!-- Título -->
+  <text x="200" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Flan Casero</text>
+</svg>

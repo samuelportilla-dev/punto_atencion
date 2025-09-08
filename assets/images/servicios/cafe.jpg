@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="cupGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F5F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0E0E0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="coffeeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4B0000;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="steamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0E0E0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0F0F0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Mesa -->
+  <ellipse cx="200" cy="250" rx="180" ry="40" fill="#f8f8f8" stroke="#d0d0d0" stroke-width="2"/>
+  
+  <!-- Taza de café -->
+  <path d="M160 200 L170 120 L230 120 L240 200 L230 220 L170 220 Z" fill="url(#cupGrad)" stroke="#C0C0C0" stroke-width="2"/>
+  
+  <!-- Café -->
+  <path d="M165 200 L175 130 L225 130 L235 200 L225 210 L175 210 Z" fill="url(#coffeeGrad)" opacity="0.9"/>
+  
+  <!-- Asa de la taza -->
+  <path d="M240 160 Q260 160 260 180 Q260 200 240 200" stroke="#C0C0C0" stroke-width="4" fill="none"/>
+  
+  <!-- Vapor -->
+  <path d="M190 110 Q195 100 200 110 Q205 100 210 110" stroke="url(#steamGrad)" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M180 105 Q185 95 190 105 Q195 95 200 105" stroke="url(#steamGrad)" stroke-width="2" fill="none" opacity="0.4"/>
+  <path d="M200 105 Q205 95 210 105 Q215 95 220 105" stroke="url(#steamGrad)" stroke-width="2" fill="none" opacity="0.5"/>
+  
+  <!-- Plato -->
+  <ellipse cx="200" cy="220" rx="50" ry="8" fill="url(#cupGrad)" stroke="#C0C0C0" stroke-width="1"/>
+  
+  <!-- Cucharita -->
+  <rect x="120" y="140" width="30" height="3" fill="#C0C0C0" rx="1"/>
+  <circle cx="150" cy="141" r="2" fill="#C0C0C0"/>
+  
+  <!-- Azúcar -->
+  <circle cx="180" cy="150" r="1" fill="#FFFFFF"/>
+  <circle cx="185" cy="155" r="1" fill="#FFFFFF"/>
+  <circle cx="190" cy="152" r="1" fill="#FFFFFF"/>
+  
+  <!-- Título -->
+  <text x="200" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Café</text>
+</svg>

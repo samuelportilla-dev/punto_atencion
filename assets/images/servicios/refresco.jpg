@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="canGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sodaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B0000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DC143C;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Mesa -->
+  <ellipse cx="200" cy="250" rx="180" ry="40" fill="#f8f8f8" stroke="#d0d0d0" stroke-width="2"/>
+  
+  <!-- Lata de refresco -->
+  <rect x="180" y="120" width="40" height="120" rx="5" fill="url(#canGrad)" stroke="#FF8C00" stroke-width="2"/>
+  
+  <!-- Bebida dentro de la lata -->
+  <rect x="185" y="130" width="30" height="100" rx="3" fill="url(#sodaGrad)" opacity="0.8"/>
+  
+  <!-- Logo/Etiqueta -->
+  <rect x="185" y="150" width="30" height="50" fill="#FFFFFF" stroke="#FF8C00" stroke-width="1"/>
+  <text x="200" y="170" text-anchor="middle" fill="#8B0000" font-family="Arial, sans-serif" font-size="8" font-weight="bold">COLA</text>
+  <text x="200" y="180" text-anchor="middle" fill="#8B0000" font-family="Arial, sans-serif" font-size="6">330ml</text>
+  
+  <!-- Tapa -->
+  <rect x="185" y="115" width="30" height="10" fill="#C0C0C0" rx="2"/>
+  
+  <!-- Burbujas -->
+  <circle cx="195" cy="140" r="1" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="210" cy="150" r="1" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="190" cy="160" r="1" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="205" cy="170" r="1" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="195" cy="180" r="1" fill="#FFFFFF" opacity="0.8"/>
+  
+  <!-- Vaso con hielo -->
+  <rect x="120" y="140" width="30" height="80" rx="3" fill="url(#sodaGrad)" opacity="0.6" stroke="#8B0000" stroke-width="1"/>
+  <circle cx="135" cy="150" r="3" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="140" cy="160" r="2" fill="#FFFFFF" opacity="0.8"/>
+  <circle cx="130" cy="170" r="2" fill="#FFFFFF" opacity="0.8"/>
+  
+  <!-- Título -->
+  <text x="200" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Refresco</text>
+</svg>

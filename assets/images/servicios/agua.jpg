@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bottleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0F6FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B0E0E6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4682B4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Mesa -->
+  <ellipse cx="200" cy="250" rx="180" ry="40" fill="#f8f8f8" stroke="#d0d0d0" stroke-width="2"/>
+  
+  <!-- Botella de agua -->
+  <rect x="180" y="120" width="40" height="120" rx="5" fill="url(#bottleGrad)" stroke="#B0E0E6" stroke-width="2"/>
+  
+  <!-- Agua dentro de la botella -->
+  <rect x="185" y="130" width="30" height="100" rx="3" fill="url(#waterGrad)" opacity="0.7"/>
+  
+  <!-- Etiqueta -->
+  <rect x="185" y="160" width="30" height="40" fill="#FFFFFF" stroke="#B0E0E6" stroke-width="1"/>
+  <text x="200" y="180" text-anchor="middle" fill="#4682B4" font-family="Arial, sans-serif" font-size="8" font-weight="bold">AGUA</text>
+  <text x="200" y="190" text-anchor="middle" fill="#4682B4" font-family="Arial, sans-serif" font-size="6">500ml</text>
+  
+  <!-- Tapa -->
+  <rect x="185" y="115" width="30" height="10" fill="#C0C0C0" rx="2"/>
+  
+  <!-- Burbujas -->
+  <circle cx="195" cy="140" r="2" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="210" cy="150" r="1" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="190" cy="160" r="1" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="205" cy="170" r="2" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="195" cy="180" r="1" fill="#FFFFFF" opacity="0.6"/>
+  
+  <!-- Título -->
+  <text x="200" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Agua Mineral</text>
+</svg>

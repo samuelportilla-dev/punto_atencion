@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="plateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f8f8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8e8e8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="salmonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6347;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DC143C;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Plato -->
+  <ellipse cx="200" cy="200" rx="180" ry="60" fill="url(#plateGrad)" stroke="#d0d0d0" stroke-width="2"/>
+  
+  <!-- Salmón -->
+  <ellipse cx="200" cy="170" rx="80" ry="25" fill="url(#salmonGrad)" stroke="#B22222" stroke-width="2"/>
+  
+  <!-- Líneas del salmón -->
+  <line x1="140" y1="165" x2="260" y2="165" stroke="#B22222" stroke-width="1" opacity="0.6"/>
+  <line x1="140" y1="170" x2="260" y2="170" stroke="#B22222" stroke-width="1" opacity="0.6"/>
+  <line x1="140" y1="175" x2="260" y2="175" stroke="#B22222" stroke-width="1" opacity="0.6"/>
+  
+  <!-- Vegetales -->
+  <ellipse cx="120" cy="185" rx="15" ry="8" fill="#90EE90"/>
+  <ellipse cx="100" cy="190" rx="12" ry="6" fill="#90EE90"/>
+  <ellipse cx="140" cy="190" rx="10" ry="5" fill="#90EE90"/>
+  
+  <ellipse cx="280" cy="185" rx="15" ry="8" fill="#FF6347"/>
+  <ellipse cx="300" cy="190" rx="12" ry="6" fill="#FF6347"/>
+  <ellipse cx="260" cy="190" rx="10" ry="5" fill="#FF6347"/>
+  
+  <!-- Limón -->
+  <circle cx="150" cy="160" r="6" fill="#FFFF00" stroke="#FFD700" stroke-width="1"/>
+  <path d="M150 154 Q155 152 160 154" stroke="#228B22" stroke-width="1" fill="none"/>
+  
+  <!-- Hierbas -->
+  <path d="M180 160 Q185 155 190 160" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  <path d="M200 162 Q205 157 210 162" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  <path d="M220 161 Q225 156 230 161" fill="#228B22" stroke="#006400" stroke-width="1"/>
+  
+  <!-- Salsa -->
+  <ellipse cx="200" cy="200" rx="50" ry="10" fill="#FFD700" opacity="0.7"/>
+  
+  <!-- Título -->
+  <text x="200" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Salmón al Horno</text>
+</svg>

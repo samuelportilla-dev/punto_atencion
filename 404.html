@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página No Encontrada - El Punto de Atención</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .error-container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 2rem;
+        }
+        .error-code {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #7c3aed;
+            margin: 0;
+            line-height: 1;
+        }
+        .error-title {
+            font-size: 1.5rem;
+            color: #374151;
+            margin: 1rem 0;
+        }
+        .error-message {
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            background: #7c3aed;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #6d28d9;
+        }
+        .icon {
+            font-size: 4rem;
+            color: #7c3aed;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="icon">🔍</div>
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title">Página No Encontrada</h2>
+        <p class="error-message">
+            La página que buscas no existe o ha sido movida. 
+            Verifica la URL o navega desde nuestra página principal.
+        </p>
+        <a href="/punto_atencion/" class="btn">Volver al Inicio</a>
+    </div>
+</body>
+</html>

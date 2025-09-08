@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F5F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0E0E0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="wineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B0000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4B0000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Mesa -->
+  <ellipse cx="200" cy="250" rx="180" ry="40" fill="#f8f8f8" stroke="#d0d0d0" stroke-width="2"/>
+  
+  <!-- Copa de vino -->
+  <path d="M180 200 L190 120 L210 120 L220 200 L210 220 L190 220 Z" fill="url(#glassGrad)" stroke="#C0C0C0" stroke-width="2"/>
+  
+  <!-- Vino -->
+  <path d="M185 200 L195 140 L205 140 L215 200 L205 210 L195 210 Z" fill="url(#wineGrad)" opacity="0.9"/>
+  
+  <!-- Pie de la copa -->
+  <rect x="195" y="220" width="10" height="20" fill="url(#glassGrad)" stroke="#C0C0C0" stroke-width="1"/>
+  <ellipse cx="200" cy="240" rx="8" ry="3" fill="url(#glassGrad)" stroke="#C0C0C0" stroke-width="1"/>
+  
+  <!-- Botella de vino -->
+  <rect x="120" y="80" width="30" height="160" rx="5" fill="#2F4F4F" stroke="#1C3A3A" stroke-width="2"/>
+  <rect x="125" y="90" width="20" height="140" fill="#8B0000" opacity="0.8"/>
+  <rect x="125" y="100" width="20" height="30" fill="#FFFFFF" stroke="#2F4F4F" stroke-width="1"/>
+  <text x="135" y="120" text-anchor="middle" fill="#2F4F4F" font-family="Arial, sans-serif" font-size="6" font-weight="bold">VINO</text>
+  
+  <!-- Corcho -->
+  <rect x="125" y="70" width="20" height="15" fill="#8B4513" rx="2"/>
+  
+  <!-- Reflejos en el cristal -->
+  <path d="M185 130 Q190 125 195 130" stroke="#FFFFFF" stroke-width="1" fill="none" opacity="0.3"/>
+  <path d="M185 150 Q190 145 195 150" stroke="#FFFFFF" stroke-width="1" fill="none" opacity="0.2"/>
+  
+  <!-- Título -->
+  <text x="200" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Vino Tinto</text>
+</svg>

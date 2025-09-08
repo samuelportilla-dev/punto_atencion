@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Digitales - El Punto de Atención</title>
+    <meta name="description" content="Descubre nuestros servicios digitales: Gestión de Proyectos, CRM Inteligente, Análisis de Datos y más soluciones empresariales.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .main-content {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .page-header h1 {
+            color: #7c3aed;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .service-card h3 {
+            color: #7c3aed;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            background: #7c3aed;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background: #5b21b6;
+            transform: translateY(-2px);
+        }
+        
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin: 1rem 0;
+        }
+        
+        .features-list li {
+            padding: 0.5rem 0;
+            color: #666;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            color: #7c3aed;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.svg" alt="El Punto de Atención">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html" class="active">Servicios Digitales</a></li>
+                <li><a href="casos-exito.html">Casos de Éxito</a></li>
+                <li><a href="portafolio.html">Portafolio</a></li>
+                <li><a href="soluciones.html">Soluciones</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Servicios Digitales</h1>
+            <p>Descubre nuestro ecosistema completo de herramientas digitales diseñadas para optimizar tu empresa</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>Gestión de Proyectos</h3>
+                <p>Organiza, planifica y ejecuta proyectos con herramientas colaborativas y seguimiento en tiempo real.</p>
+                <ul class="features-list">
+                    <li>Planificación colaborativa</li>
+                    <li>Seguimiento en tiempo real</li>
+                    <li>Gestión de recursos</li>
+                    <li>Reportes automáticos</li>
+                    <li>Integración con equipos</li>
+                </ul>
+                <button class="btn" onclick="showServiceDetails('proyectos')">Explorar</button>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>CRM Inteligente</h3>
+                <p>Gestiona relaciones con clientes, automatiza procesos de ventas y mejora la experiencia del usuario.</p>
+                <ul class="features-list">
+                    <li>Gestión de contactos</li>
+                    <li>Pipeline de ventas</li>
+                    <li>Automatización de marketing</li>
+                    <li>Análisis de comportamiento</li>
+                    <li>Integración omnicanal</li>
+                </ul>
+                <button class="btn" onclick="showServiceDetails('crm')">Descubrir</button>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Análisis de Datos</h3>
+                <p>Obtén insights valiosos con dashboards interactivos y reportes automatizados para tomar mejores decisiones.</p>
+                <ul class="features-list">
+                    <li>Dashboards interactivos</li>
+                    <li>Reportes personalizados</li>
+                    <li>Predicciones con IA</li>
+                    <li>KPIs en tiempo real</li>
+                    <li>Visualización avanzada</li>
+                </ul>
+                <button class="btn" onclick="showServiceDetails('analytics')">Analizar</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Cloud Computing</h3>
+                <p>Infraestructura escalable en la nube con seguridad empresarial y disponibilidad 24/7.</p>
+                <ul class="features-list">
+                    <li>Escalabilidad automática</li>
+                    <li>Seguridad avanzada</li>
+                    <li>Backup automático</li>
+                    <li>99.9% de disponibilidad</li>
+                    <li>Soporte 24/7</li>
+                </ul>
+                <button class="btn" onclick="showServiceDetails('cloud')">Migrar</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Automatización</h3>
+                <p>Automatiza procesos repetitivos y optimiza workflows para aumentar la productividad.</p>
+                <ul class="features-list">
+                    <li>Workflows inteligentes</li>
+                    <li>APIs personalizadas</li>
+                    <li>Integración de sistemas</li>
+                    <li>Procesamiento automático</li>
+                    <li>Alertas y notificaciones</li>
+                </ul>
+                <button class="btn" onclick="showServiceDetails('automation')">Automatizar</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Aplicaciones Móviles</h3>
+                <p>Desarrollamos aplicaciones móviles nativas y multiplataforma para tu negocio.</p>
+                <ul class="features-list">
+                    <li>Desarrollo nativo</li>
+                    <li>Diseño responsive</li>
+                    <li>Integración con plataforma</li>
+                    <li>Notificaciones push</li>
+                    <li>Análisis de uso</li>
+                </ul>
+                <button class="btn" onclick="showServiceDetails('mobile')">Desarrollar</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showServiceDetails(service) {
+            const services = {
+                'proyectos': 'Gestión de Proyectos: Herramientas avanzadas para planificar, ejecutar y monitorear proyectos con máxima eficiencia.',
+                'crm': 'CRM Inteligente: Sistema completo de gestión de clientes con automatización de ventas y marketing.',
+                'analytics': 'Análisis de Datos: Plataforma de business intelligence con IA para insights predictivos.',
+                'cloud': 'Cloud Computing: Infraestructura escalable y segura en la nube con soporte 24/7.',
+                'automation': 'Automatización: Workflows inteligentes que optimizan procesos y reducen tareas manuales.',
+                'mobile': 'Aplicaciones Móviles: Desarrollo de apps nativas con integración completa a tu plataforma.'
+            };
+            
+            alert(services[service] || 'Servicio no encontrado');
+        }
+    </script>
+</body>
+</html>

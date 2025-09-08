@@ -1,0 +1,158 @@
+# Configuración del servidor Apache para El Punto
+# Sistema de Intercomunicación Cocina & Meseros
+
+# Habilitar reescritura de URLs
+RewriteEngine On
+
+# Configuración de seguridad
+ServerTokens Prod
+ServerSignature Off
+
+# Headers de seguridad
+Header always set X-Content-Type-Options nosniff
+Header always set X-Frame-Options DENY
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+# Configuración de caché para archivos estáticos
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    Header set Cache-Control "public, immutable"
+</FilesMatch>
+
+# Configuración de caché para archivos PHP (no cachear)
+<FilesMatch "\.(php|html)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</FilesMatch>
+
+# Compresión GZIP
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# Configuración de MIME types
+AddType application/javascript .js
+AddType text/css .css
+AddType image/svg+xml .svg
+
+# Configuración de directorios
+<Directory "uploads">
+    Options -Indexes
+    Order allow,deny
+    Deny from all
+</Directory>
+
+<Directory "logs">
+    Options -Indexes
+    Order allow,deny
+    Deny from all
+</Directory>
+
+<Directory "cache">
+    Options -Indexes
+    Order allow,deny
+    Deny from all
+</Directory>
+
+# Configuración de PHP
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300
+php_value memory_limit 256M
+php_value error_reporting E_ALL
+php_value display_errors On
+php_value log_errors On
+php_value error_log logs/php_errors.log
+
+# Configuración de sesiones
+php_value session.gc_maxlifetime 3600
+php_value session.cookie_lifetime 0
+php_value session.use_strict_mode 1
+php_value session.cookie_httponly 1
+php_value session.cookie_secure 0
+php_value session.use_only_cookies 1
+
+# Configuración de timezone
+php_value date.timezone "America/Mexico_City"
+
+# Configuración de caracteres
+AddDefaultCharset UTF-8
+
+# Configuración de índices
+DirectoryIndex index.php index.html
+
+# Manejo de errores personalizado
+ErrorDocument 404 /pages/error.php?code=404
+ErrorDocument 500 /pages/error.php?code=500
+ErrorDocument 403 /pages/error.php?code=403
+
+# Reglas de reescritura para URLs amigables
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ pages/$1.php [L]
+
+# Protección contra acceso directo a archivos sensibles
+<Files "*.sql">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.log">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "*.txt">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Configuración de logs de acceso
+LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+CustomLog logs/access.log combined
+
+# Configuración de logs de error
+ErrorLog logs/error.log
+
+# Configuración de timeouts
+Timeout 300
+KeepAlive On
+MaxKeepAliveRequests 100
+KeepAliveTimeout 15
+
+# Configuración de compresión para archivos grandes
+<IfModule mod_deflate.c>
+    SetOutputFilter DEFLATE
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+    SetEnvIfNoCase Request_URI \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+    SetEnvIfNoCase Request_URI \.pdf$ no-gzip dont-vary
+</IfModule>
+
+# Configuración de caché para navegadores
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/ico "access plus 1 month"
+    ExpiresByType image/icon "access plus 1 month"
+    ExpiresByType text/plain "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+</IfModule>

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Punto de Atención — Plataforma Web Integral</title>
+    <meta name="description" content="El Punto de Atención: Plataforma web integral que optimiza la gestión empresarial mediante soluciones digitales innovadoras. Conecta, gestiona y potencia tu negocio.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Navegación */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7c3aed;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Banner y Carrusel */
+        .banner {
+            margin-top: 80px;
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .carousel {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .carousel-container {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .slide1 { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500"><rect width="1200" height="500" fill="%237c3aed"/><text x="600" y="250" text-anchor="middle" fill="white" font-size="48">El Punto de Atención</text></svg>'); }
+        .slide2 { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500"><rect width="1200" height="500" fill="%235b21b6"/><text x="600" y="250" text-anchor="middle" fill="white" font-size="48">Soluciones Digitales</text></svg>'); }
+        .slide3 { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500"><rect width="1200" height="500" fill="%237c3aed"/><text x="600" y="250" text-anchor="middle" fill="white" font-size="48">Innovación Empresarial</text></svg>'); }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(124,58,237,0.8);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(124,58,237,1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 20px;
+        }
+
+        .carousel-btn.next {
+            right: 20px;
+        }
+
+        /* Secciones */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            color: #7c3aed;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Pedidos y Disponibilidad */
+        .orders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .order-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .order-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .order-card h3 {
+            color: #7c3aed;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            background: #7c3aed;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #5b21b6;
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Historial */
+        .history-table {
+            width: 100%;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .history-table th,
+        .history-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .history-table th {
+            background: #7c3aed;
+            color: white;
+            font-weight: bold;
+        }
+
+        .history-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Galería */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 5% auto;
+            max-width: 80%;
+            max-height: 80%;
+            animation: slideIn 0.3s ease;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Ubicación de Mesas */
+        .tables-map {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .tables-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .table-item {
+            background: #7c3aed;
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .table-item.occupied {
+            background: #dc3545;
+        }
+
+        /* Formulario de Contacto */
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #7c3aed;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #7c3aed;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .carousel-btn {
+                padding: 0.5rem;
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .tables-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/images/logo.svg" alt="El Punto de Atención" style="height: 50px; width: auto;">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios Digitales</a></li>
+                <li><a href="casos-exito.html">Casos de Éxito</a></li>
+                <li><a href="portafolio.html">Portafolio</a></li>
+                <li><a href="soluciones.html">Soluciones</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner y Carrusel -->
+    <section id="inicio" class="banner">
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide slide1">
+                    <h1>El Punto de Atención</h1>
+                </div>
+                <div class="carousel-slide slide2">
+                    <h1>Soluciones Digitales</h1>
+                </div>
+                <div class="carousel-slide slide3">
+                    <h1>Innovación Empresarial</h1>
+                </div>
+            </div>
+            <button class="carousel-btn prev" role="button" aria-label="Imagen anterior">&lt;</button>
+            <button class="carousel-btn next" role="button" aria-label="Imagen siguiente">&gt;</button>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="section">
+        <h2>Nosotros</h2>
+        <p>
+            <strong>El Punto de Atención</strong> es más que una plataforma web; es el núcleo digital que transforma y potencia tu negocio hacia el futuro. Nuestra filosofía se centra en la innovación, eficiencia y conectividad digital para garantizar que cada empresa alcance su máximo potencial en el mundo digital.
+        </p>
+        <p>
+            Con años de experiencia en el desarrollo de soluciones tecnológicas, hemos creado una plataforma integral que elimina las barreras tradicionales del mundo empresarial. Nuestro sistema permite a las empresas gestionar sus procesos, optimizar sus recursos, analizar datos en tiempo real y conectar con sus clientes de manera más efectiva.
+        </p>
+        <p>
+            En <strong>El Punto de Atención</strong>, creemos que la excelencia empresarial comienza con la transformación digital. Cada proceso cuenta, y nuestra plataforma está diseñada para maximizar la productividad operativa mientras mantiene la calidad y personalización que tus clientes esperan.
+        </p>
+    </section>
+
+    <!-- Sección Servicios Digitales -->
+    <section id="servicios" class="section">
+        <h2>Servicios Digitales</h2>
+        <p>
+            Nuestra plataforma ofrece un ecosistema completo de herramientas digitales diseñadas para optimizar y automatizar los procesos de tu empresa. Desde gestión de clientes hasta análisis de datos avanzados, tenemos la solución que tu negocio necesita.
+        </p>
+        
+        <div class="orders-grid">
+            <div class="order-card">
+                <h3>Gestión de Proyectos</h3>
+                <p>Organiza, planifica y ejecuta proyectos con herramientas colaborativas y seguimiento en tiempo real.</p>
+                <button class="btn" onclick="verGestionProyectos()">Explorar</button>
+            </div>
+            
+            <div class="order-card">
+                <h3>CRM Inteligente</h3>
+                <p>Gestiona relaciones con clientes, automatiza procesos de ventas y mejora la experiencia del usuario.</p>
+                <button class="btn" onclick="verCRM()">Descubrir</button>
+            </div>
+            
+            <div class="order-card">
+                <h3>Análisis de Datos</h3>
+                <p>Obtén insights valiosos con dashboards interactivos y reportes automatizados para tomar mejores decisiones.</p>
+                <button class="btn" onclick="verAnalisis()">Analizar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Casos de Éxito -->
+    <section id="historial" class="section">
+        <h2>Casos de Éxito</h2>
+        <p>
+            Conoce cómo nuestras soluciones han transformado empresas de diversos sectores, mejorando su eficiencia operativa y aumentando su competitividad en el mercado digital.
+        </p>
+        
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Sector</th>
+                    <th>Solución Implementada</th>
+                    <th>Consultor</th>
+                    <th>Fecha</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TechCorp Solutions</td>
+                    <td>Tecnología</td>
+                    <td>CRM + Análisis de Datos</td>
+                    <td>María González</td>
+                    <td>Ene 2024</td>
+                    <td>+45% Ventas</td>
+                </tr>
+                <tr>
+                    <td>Retail Express</td>
+                    <td>Comercio</td>
+                    <td>Gestión de Proyectos</td>
+                    <td>Carlos Ruiz</td>
+                    <td>Feb 2024</td>
+                    <td>-30% Tiempo</td>
+                </tr>
+                <tr>
+                    <td>InnovateLab</td>
+                    <td>Consultoría</td>
+                    <td>Plataforma Integral</td>
+                    <td>Ana Martínez</td>
+                    <td>Mar 2024</td>
+                    <td>+60% Eficiencia</td>
+                </tr>
+                <tr>
+                    <td>GrowthCo</td>
+                    <td>Marketing</td>
+                    <td>Dashboard Ejecutivo</td>
+                    <td>Luis Pérez</td>
+                    <td>Abr 2024</td>
+                    <td>+35% ROI</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Sección Portafolio -->
+    <section id="galeria" class="section">
+        <h2>Portafolio de Soluciones</h2>
+        <p>
+            Descubre nuestras soluciones digitales innovadoras, cuidadosamente diseñadas por nuestro equipo de expertos en tecnología empresarial.
+        </p>
+        
+        <div class="gallery">
+            <div class="gallery-item" onclick="openModal('solucion1')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%237c3aed'/><text x='150' y='100' text-anchor='middle' fill='white' font-size='20'>Dashboard Ejecutivo</text></svg>" alt="Dashboard Ejecutivo">
+            </div>
+            <div class="gallery-item" onclick="openModal('solucion2')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%235b21b6'/><text x='150' y='100' text-anchor='middle' fill='white' font-size='20'>CRM Inteligente</text></svg>" alt="CRM Inteligente">
+            </div>
+            <div class="gallery-item" onclick="openModal('solucion3')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%237c3aed'/><text x='150' y='100' text-anchor='middle' fill='white' font-size='20'>Gestión de Proyectos</text></svg>" alt="Gestión de Proyectos">
+            </div>
+            <div class="gallery-item" onclick="openModal('solucion4')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%235b21b6'/><text x='150' y='100' text-anchor='middle' fill='white' font-size='20'>Análisis Predictivo</text></svg>" alt="Análisis Predictivo">
+            </div>
+            <div class="gallery-item" onclick="openModal('solucion5')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%237c3aed'/><text x='150' y='100' text-anchor='middle' fill='white' font-size='20'>Automatización</text></svg>" alt="Automatización">
+            </div>
+            <div class="gallery-item" onclick="openModal('solucion6')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%235b21b6'/><text x='150' y='100' text-anchor='middle' fill='white' font-size='20'>Cloud Computing</text></svg>" alt="Cloud Computing">
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para Galería -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Imagen ampliada">
+        </div>
+    </div>
+
+    <!-- Sección Nuestras Soluciones -->
+    <section id="soluciones" class="section">
+        <h2>Nuestras Soluciones</h2>
+        <p>
+            Ecosistema integral de herramientas digitales que se adaptan a las necesidades específicas de tu empresa, organizadas por categorías para una mejor comprensión y implementación.
+        </p>
+        
+        <div class="tables-map">
+            <h3>Módulos de la Plataforma</h3>
+            <div class="tables-grid">
+                <div class="table-item">CRM</div>
+                <div class="table-item occupied">Analytics</div>
+                <div class="table-item">Proyectos</div>
+                <div class="table-item occupied">Ventas</div>
+                <div class="table-item">Marketing</div>
+                <div class="table-item">Finanzas</div>
+                <div class="table-item occupied">RRHH</div>
+                <div class="table-item">Inventario</div>
+                <div class="table-item">Soporte</div>
+                <div class="table-item occupied">Cloud</div>
+                <div class="table-item">Seguridad</div>
+                <div class="table-item">Reportes</div>
+                <div class="table-item occupied">API</div>
+                <div class="table-item">Mobile</div>
+                <div class="table-item">IA</div>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
+                <strong>Leyenda:</strong> Morado = Disponible | Rojo = En Desarrollo
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="section">
+        <h2>Contacto</h2>
+        <p>
+            ¿Tienes alguna pregunta sobre nuestra plataforma o quieres implementarla en tu empresa? 
+            No dudes en contactarnos. Estamos aquí para transformar digitalmente tu negocio.
+        </p>
+        
+        <form class="contact-form" id="contactForm">
+            <div class="success-message" id="successMessage">¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.</div>
+            <div class="error-message" id="errorMessage">Por favor, completa todos los campos correctamente.</div>
+            
+            <div class="form-group">
+                <label for="nombre">Nombre *</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="mensaje">Mensaje *</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn" id="submitBtn">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <script>
+        // Carrusel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            currentSlide = (n + totalSlides) % totalSlides;
+            const container = document.querySelector('.carousel-container');
+            container.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+
+        document.querySelector('.next').addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+
+        // Auto-play del carrusel
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // Funciones para los servicios digitales
+        function verGestionProyectos() {
+            alert('Módulo de Gestión de Proyectos\n\n✓ Planificación colaborativa\n✓ Seguimiento en tiempo real\n✓ Gestión de recursos\n✓ Reportes automáticos\n✓ Integración con equipos');
+        }
+
+        function verCRM() {
+            alert('CRM Inteligente\n\n✓ Gestión de contactos\n✓ Pipeline de ventas\n✓ Automatización de marketing\n✓ Análisis de comportamiento\n✓ Integración omnicanal');
+        }
+
+        function verAnalisis() {
+            alert('Análisis de Datos\n\n✓ Dashboards interactivos\n✓ Reportes personalizados\n✓ Predicciones con IA\n✓ KPIs en tiempo real\n✓ Visualización avanzada');
+        }
+
+        // Modal para portafolio
+        function openModal(solucionId) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            // Diferentes soluciones para cada módulo
+            const soluciones = {
+                'solucion1': 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect width="600" height="400" fill="%237c3aed"/><text x="300" y="180" text-anchor="middle" fill="white" font-size="36">Dashboard Ejecutivo</text><text x="300" y="220" text-anchor="middle" fill="white" font-size="20">Métricas clave en tiempo real</text><text x="300" y="250" text-anchor="middle" fill="white" font-size="16">KPIs • Gráficos • Alertas</text></svg>',
+                'solucion2': 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect width="600" height="400" fill="%235b21b6"/><text x="300" y="180" text-anchor="middle" fill="white" font-size="36">CRM Inteligente</text><text x="300" y="220" text-anchor="middle" fill="white" font-size="20">Gestión completa de clientes</text><text x="300" y="250" text-anchor="middle" fill="white" font-size="16">Contactos • Ventas • Marketing</text></svg>',
+                'solucion3': 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect width="600" height="400" fill="%237c3aed"/><text x="300" y="180" text-anchor="middle" fill="white" font-size="36">Gestión de Proyectos</text><text x="300" y="220" text-anchor="middle" fill="white" font-size="20">Planificación y seguimiento</text><text x="300" y="250" text-anchor="middle" fill="white" font-size="16">Tareas • Recursos • Timeline</text></svg>',
+                'solucion4': 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect width="600" height="400" fill="%235b21b6"/><text x="300" y="180" text-anchor="middle" fill="white" font-size="36">Análisis Predictivo</text><text x="300" y="220" text-anchor="middle" fill="white" font-size="20">Inteligencia artificial avanzada</text><text x="300" y="250" text-anchor="middle" fill="white" font-size="16">IA • ML • Predicciones</text></svg>',
+                'solucion5': 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect width="600" height="400" fill="%237c3aed"/><text x="300" y="180" text-anchor="middle" fill="white" font-size="36">Automatización</text><text x="300" y="220" text-anchor="middle" fill="white" font-size="20">Procesos automatizados</text><text x="300" y="250" text-anchor="middle" fill="white" font-size="16">Workflows • APIs • Integración</text></svg>',
+                'solucion6': 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect width="600" height="400" fill="%235b21b6"/><text x="300" y="180" text-anchor="middle" fill="white" font-size="36">Cloud Computing</text><text x="300" y="220" text-anchor="middle" fill="white" font-size="20">Infraestructura en la nube</text><text x="300" y="250" text-anchor="middle" fill="white" font-size="16">Escalabilidad • Seguridad • 99.9%</text></svg>'
+            };
+            
+            modalImg.src = soluciones[solucionId] || soluciones['solucion1'];
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic fuera de la imagen
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mensaje = document.getElementById('mensaje').value.trim();
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Validación
+            if (!nombre || !email || !mensaje) {
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                return;
+            }
+            
+            // Validar email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorMessage.textContent = 'Por favor, ingresa un email válido.';
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                return;
+            }
+            
+            // Simular envío exitoso
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            
+            setTimeout(() => {
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                document.getElementById('contactForm').reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar Mensaje';
+                
+                // Ocultar mensaje de éxito después de 5 segundos
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }, 1500);
+        });
+
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
